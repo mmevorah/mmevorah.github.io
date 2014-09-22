@@ -1,26 +1,60 @@
 /*jslint browser: true*/
 /*global $, jQuery, alert*/
 
+var cornerIsExpanded = false;
+var numNavigationLinks = 0;
+var navigationHeigthDefault;
+var navigationHeigthExpanded;
+
+var bufferHeight = 130;
+var NAV_BOX_SIZE = 100;
+
 $(document).ready(function () {
     "use strict";
     
-    console.log(screen.height);
+    init();
     
-    $(".CornerNav").mouseenter(expandCorner);
-    $(".CornerNav").mouseleave(releaseCorner);
+    $(".Navigation").mouseenter(toggleCorner);
+    $(".Navigation").mouseleave(toggleCorner);
     
 });
 
-function expandCorner() {
-    var animationTime = 500;
-    var newHeightAndWidth = screen.height;    
-    animateCorner(newHeightAndWidth, animationTime);
+function init(){
+    numNavigationLinks = $(".Navigation").children().length - 1; //Minus one for background triangle
+    
+    $(".NavBox").hide();
+    
+    var sum = 0;
+    var i = 0;
+    while(numNavigationLinks > sum){
+        sum += Math.pow(2, i);
+        i++;
+    }
+    
+    navigationHeigthDefault = 230;
+    navigationHeigthExpanded = numNavigationLinks * (NAV_BOX_SIZE + bufferHeight);
+    
+    console.log(i);
 }
 
-function releaseCorner() {
-   var animationTime = 500;
-   var newHeightAndWidth = 250;  
-   animateCorner(newHeightAndWidth, animationTime);
+function toggleCorner() {
+    var animationTime = 500;
+    var newHeightAndWidth;
+    
+    if(!cornerIsExpanded){
+        newHeightAndWidth = navigationHeigthExpanded;
+    }else{
+        newHeightAndWidth = navigationHeigthDefault;
+    }
+    cornerIsExpanded = !cornerIsExpanded;
+
+    animateCorner(newHeightAndWidth, animationTime);
+    
+    if(cornerIsExpanded){
+        for(i = 0; i < numNavigationLinks; i++){
+                     
+        }
+    }
 }
 
 function animateCorner(heightWidth, animationTime){
@@ -30,5 +64,5 @@ function animateCorner(heightWidth, animationTime){
         width: heightWidth,
         left: offset,
         top: offset
-    }, animationTime);
+    }, animationTime);    
 }

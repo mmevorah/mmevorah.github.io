@@ -1,5 +1,6 @@
 .ImageBody {
     background-image: url('https://s3.amazonaws.com/mmevorah.github.io/img/home/IMGP5110.JPG');
+    background-color: navy;
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -9,10 +10,29 @@
     background-size: contain;
     -webkit-transform: rotate(45deg);
     position: fixed;
-    height: 250px;
-    width: 250px;
+    height: 230px;
+    width: 230px;
     left: -125px;
     top: -125px;
     box-shadow: -25px -25px 20px 30px #202022;   
+}
+
+.HomeBox {
+    position: fixed;
+    background-size: contain;
+    background-image: url("../IMG/HomeButton.png");
+    -webkit-transform: rotate(-45deg);
+    background-color: transparent;
+    height: 150px;
+    width: 150px;
     
+    left: -65px;
+    top: -65px;
+}
+
+.NavBox {
+    position: absolute;
+    background-color: blue;
+    height: 100px;
+    width: 100px;
 }
