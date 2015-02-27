@@ -1,8 +1,12 @@
 .ImageBody {
-    background-image: url('https://s3.amazonaws.com/mmevorah.github.io/img/home/IMG_0549.JPG');
-    background-color: navy;
-    background-size: 100%;
-    background-repeat: no-repeat;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.BackgroundImage {
+    -webkit-filter: blur(10px);
 }
 
 .CornerNav {
